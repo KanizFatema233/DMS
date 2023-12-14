@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Recharge History | DMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{url_for('static',filename='./images/favicon.ico')}}">
+
+    <!-- Layout config Js -->
+    <script src="{{url_for('static',filename='./js/layout.js')}}"></script>
+    <!-- Bootstrap Css -->
+    <link href="{{url_for('static',filename="./css/bootstrap.min.css")}}" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{url_for('static',filename="./css/icons.min.css")}}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{{url_for('static',filename="./css/app.min.css")}}" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="{{url_for('static',filename='./css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <style>
+        .cards-wrapper22 {
+        display: flex;
+        flex-wrap: wrap;
+        columns: 4;
+        }
+
+
+        .truncated-paragraph {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 3000px; /* Adjust the value to control the number of characters displayed */
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <header id="page-topbar">
+    <div class="layout-width">
+        <div class="navbar-header">
+
+            
+            <div class="col-md-10  text-right">
+                
+            </div>
+            <div class="btn btn-link fw-medium text-decoration-none text-dark ">
+                        
+                <a href="/" class="btn btn-primary">Home</a>
+
+            </div>
+
+            <div class=" ">
+                        
+                <a href="/logout" class="btn btn-primary">Logout</a>
+
+            </div>
+
+        </div>
+    </div>
+</header>
+        <!-- ========== App Menu ========== -->
+        <div class="app-menu navbar-menu">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <!-- Dark Logo-->
+                <a href="/" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="{{url_for('static',filename='./images/logo-dark.png')}}" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="{{url_for('static',filename='./images/logo-dark.png')}}" alt="" height="17">
+                    </span>
+                </a>
+                <!-- Light Logo-->
+                <a href="/" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="{{url_for('static',filename='./images/logo-dark.png')}}" alt="" height="60">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="{{url_for('static',filename='./images/logo-dark.png')}}" alt="" height="60">
+                    </span>
+                </a>
+                <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                    id="vertical-hover">
+                    <i class="ri-record-circle-line"></i>
+                </button>
+            </div>
+
+            <div id="scrollbar">
+                <div class="container-fluid">
+
+                    <div id="two-column-menu">
+                    </div>
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarDashboards">
+                                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarDashboards">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="/profile" class="nav-link" data-key="t-analytics"> Profile
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/passcardRegister" class="nav-link" data-key="t-crm"> Register for MRT or Rapid Pass </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/AddCard" class="nav-link" data-key="t-ecommerce"> Add MRT or RapidPass </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/passStatus" class="nav-link" data-key="t-crypto"> Pass Status </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/recharge" class="nav-link" data-key="t-projects"> Recharge </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/rechargeHistory" class="nav-link" data-key="t-projects"> Recharge History </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link" data-key="t-projects"> My Usage </a>
+                                    </li>
+                                </ul>
+                            </div>
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <div class="position-relative mx-n4 mt-n4">
+                        
+                    </div>
+                    <div class="col-xxl-8">
+                        <h5 class="mb-3 p-3">Refund Verification</h5> 
+                            <!-- Captions -->
+<table class="table caption-top table-nowrap">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">Refund ID</th>
+            <th scope="col">Trip ID</th>
+            <th scope="col">Issued by</th>
+            <th scope="col">Issuing Date and Time</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+            
+          
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for r in refunds %}
+        <tr>
+            <th scope="row">{{r.id}}</th>
+            <td>{{r.trip_id}}</td>
+            <td>{{r.trip_user}}</td>
+            <td>{{r.refund_date}}</td>
+            <td>{{r.refund_amount}}</td>
+            <td>{{r.refund_status}}</td>
+            {% if r.refund_status == 'Pending' %}
+            <td><a href="/refundSuccess/{{r.id}}" class="btn btn-primary">Confirm Refund</a></td>
+            {% endif %}
+
+            
+
+
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+
+    
+</table>
+                        
+
+                    </div>
+                      
+                      
+
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script> © DMS
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by DMS
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    
+
+    <!-- Theme Settings -->
+    
+
+    <!-- JAVASCRIPT -->
+    <script src="{{url_for('static',filename='./libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+   <script src="{{url_for('static',filename='./libs/simplebar/simplebar.min.js')}}"></script>
+   <script src="{{url_for('static',filename='./libs/node-waves/waves.min.js')}}"></script>
+   <script src="{{url_for('static',filename='./libs/feather-icons/feather.min.js')}}"></script>
+   <script src="{{url_for('static',filename='./js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
+   <script src="{{url_for('static',filename='./js/plugins.js')}}"></script>
+
+    <!-- profile-setting init js -->
+    
+    <script src="{{url_for('static',filename='./js/pages/profile-setting.init.js')}}"></script>
+
+    <!-- App js -->
+    
+    <script src="{{url_for('static',filename='./js/app.js')}}"></script>
+</body>
+
+</html>

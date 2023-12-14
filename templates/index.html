@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Home | DMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A platform for seeking medical help assistance" name="description" />
+    <meta content="DMS" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static',filename='./assets/images/favicon.ico')}}">
+
+    <!--Swiper slider css-->
+    <link href="{{ url_for('static',filename='./assets/libs/swiper/swiper-bundle.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <!-- Layout config Js -->
+    <script src="{{ url_for('static',filename='./assets/js/layout.js')}}"></script>
+    <script src="{{ url_for('static',filename='./assets/libs/flatpickr/flatpickr.min.js')}}"></script>
+    <!-- Bootstrap Css -->
+    <link href="{{ url_for('static',filename='./assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{ url_for('static',filename='./assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{{ url_for('static',filename='./assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="{{ url_for('static',filename='./assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <style>
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        
+        .layout-wrapper {
+            flex: 1;
+        }
+        
+        .custom-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+
+    </style>
+
+    <style>
+
+        /* custom.css */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.layout-wrapper {
+    flex: 1;
+}
+
+.custom-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.image-section {
+    padding-top: 20px; /* Adjust the padding as needed */
+}
+
+/* ... other existing styles ... */
+
+
+    </style>
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar-example">
+
+    <!-- Begin page -->
+    <div class="layout-wrapper landing">
+        <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="{{url_for('static',filename='assets/images/logo-dark.png')}}" class="card-logo card-logo-dark" alt="logo dark" height="60">
+                    <img src="{{url_for('static',filename='assets/images/logo-light.png')}}" class="card-logo card-logo-light" alt="logo light"
+                        height="17">
+                </a>
+                <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mt-2 mt-lg-0" id="navbar-example">
+                        
+                        
+                        <li class="nav-item">
+                            
+                                    <!-- Clickable outside dropdown -->
+<div class="btn-group">
+    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuClickableOutside" data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false">
+        MRT and Rapid Pass
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableOutside">
+        <li><a class="dropdown-item" href="/passcardRegister">Register for MRT or Rapid Pass.</a></li>
+        <li><a class="dropdown-item" href="/AddCard">Add MRT or RapidPass.</a></li>
+        <li><a class="dropdown-item" href="/passStatus">View MRT and Rapid Pass status.</a></li>
+        <li><a class="dropdown-item" href="/recharge">Recharge MRT and Rapid Pass.</a></li>
+        <li><a class="dropdown-item" href="/rechargeHistory">History of recharging of MRT and Rapid Pass.</a></li>
+        
+    </ul>
+</div>
+                            
+                        </li>
+
+                        <li class="nav-item">
+                            
+                            <div class="btn-group">
+                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuClickableOutside" data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false">
+                                    Ticket booking
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableOutside">
+                                    <li><a class="dropdown-item" href="/trip">Trip selection.</a></li>
+                                    <li><a class="dropdown-item" href="/trip">Show route and fare.</a></li>
+                                    <li><a class="dropdown-item" href="/tripHistory">Add a voucher.</a></li>
+                                    <li><a class="dropdown-item" href="/tripHistory">Show ticket summary. </a></li>
+                                    
+                                </ul>
+                            </div>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <div class="btn-group">
+                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuClickableOutside" data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false">
+                                    Feedback Hub
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableOutside">
+
+                                    <li><a class="dropdown-item" href="/writeComplain">File a Complain.</a></li>
+                                    <li><a class="dropdown-item" href="/complainListUser">See All the complains. </a></li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+
+                    <div class="">
+                        {% if current_user.is_authenticated %}
+                        <a href="/profile" class="btn btn-primary">Profile</a>
+                        <a href="/logout" class="btn btn-primary">Sign out</a>
+                        
+
+                        {% else %}
+                        <a href="/login" class="btn btn-link fw-medium text-decoration-none text-dark">Sign
+                            in</a>
+                        <a href="/register" class="btn btn-primary">Sign Up</a>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <!-- end navbar -->
+
+        <!-- start hero section -->
+        <section class="section pb-0 hero-section" id="hero">
+            <div class="bg-overlay bg-overlay-pattern"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-sm-10">
+                        <div class="text-center mt-lg-5 pt-5">
+                            <h1 class="display-6 fw-semibold mb-3 lh-base">Roam around the city in style with <span
+                                    class="text-success">Dhaka Metro System </span></h1>
+                            <p class="lead text-muted lh-base">A platform for seeking Dhaka-Metro-Sytem assistance</p>
+
+                            <div class="d-flex gap-2 justify-content-center mt-4">
+                                <a href="" class="btn btn-primary">Get assistance Right Now<i class="ri-arrow-right-line align-middle ms-1"></i></a>
+                                <a href="" class="btn btn-danger">Sign In <i class="ri-eye-line align-middle ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+            <!-- end container -->
+            
+            <!-- end shape -->
+        </section>
+
+        <section class="image-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img src="{{url_for('static',filename='assets/images/metro.jpg')}}" alt="Image Description" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- end hero section -->
+
+        <!-- start client section -->
+        
+        <!-- end client section -->
+
+        <!-- start services -->
+        
+        <!-- end services -->
+
+        <!-- start features -->
+        
+
+        <!-- start features -->
+        
+        <!-- end features -->
+
+        <!-- start plan -->
+        
+        <!-- end plan -->
+
+        <!-- start faqs -->
+        
+        <!-- end faqs -->
+
+        <!-- start review -->
+        
+        <!-- end review -->
+
+        <!-- start counter -->
+        
+        <!-- end counter -->
+
+        <!-- start Work Process -->
+        
+        <!-- end Work Process -->
+
+        <!-- start team -->
+        
+        <!-- end team -->
+
+        <!-- start contact -->
+        
+        <!-- end contact -->
+
+        <!-- start cta -->
+        
+        <!-- end cta -->
+
+        <!-- Start footer -->
+        <footer class="custom-footer bg-dark py-2 position-relative">
+            <div class="container">
+                <div class="row">
+                    
+
+                    <div class="col-lg-10 mt-4">
+                        <div class="row">
+                            <div class="col-sm-4 mt-4">
+                                <h5 class="text-white mb-0">Company</h5>
+                                <div class="text-muted mt-3">
+                                    <ul class="list-unstyled ff-secondary footer-list">
+                                        <li><a href="/">About Us</a></li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-4 mt-4">
+                                <h5 class="text-white mb-0">Support</h5>
+                                <div class="text-muted mt-3">
+                                    <ul class="list-unstyled ff-secondary footer-list">
+                                        <li><a href="/">FAQ</a></li>
+                                        <li><a href="/">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row text-center text-sm-start align-items-center mt-5">
+                    <div class="col-sm-6">
+
+                        <div>
+                            <p class="copy-rights mb-0">
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script> © DMS. All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </footer>
+        <!-- end footer -->
+
+    </div>
+    <!-- end layout wrapper -->
+
+
+    <!-- JAVASCRIPT -->
+    <script src="{{url_for('static',filename='./assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static',filename='./assets/libs/simplebar/simplebar.min.js')}}"></script>
+    <script src="{{url_for('static',filename='./assets/libs/node-waves/waves.min.js')}}"></script>
+    <script src="{{url_for('static',filename='./assets/libs/feather-icons/feather.min.js')}}"></script>
+    <script src="{{url_for('static',filename='./assets/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
+    <script src="{{url_for('static',filename='./assets/js/plugins.js')}}"></script>
+    
+
+    <!--Swiper slider js-->
+    <script src="{{url_for('static',filename='./assets/libs/swiper/swiper-bundle.min.js')}}"></script>
+
+    <!-- landing init -->
+    <script src="{{url_for('static',filename='./assets/js/pages/landing.init.js')}}"></script>
+</body>
+
+</html>
